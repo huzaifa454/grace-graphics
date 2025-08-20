@@ -74,62 +74,65 @@ export default function Work() {
       ? projects
       : projects.filter((p) => p.category === selectedCategory);
 
-  return (
-    <section id="work" className="py-20 px-8 bg-black cursor-default">
-      <h3 className="text-3xl text-red-600 mb-12 text-center font-extrabold">
-        My Work
-      </h3>
-
-      {/* Category Buttons */}
-      <div className="flex justify-center mb-8 space-x-4">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-4 py-2 border border-red-600 rounded transition ${
-              selectedCategory === cat
-                ? "bg-red-600 text-black"
-                : "text-red-600 hover:bg-red-600 hover:text-black"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {filteredProjects.map((p, i) => (
-          <div
-            key={i}
-            className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:scale-105 transition cursor-pointer"
-            onClick={() => setSelectedImage(p.img)} 
-          >
-            <img
-              src={p.img}
-              alt={p.title}
-              className="w-full h-80 object-cover"
-            />
-            <div className="p-4">
-              <h4 className="text-lg font-semibold text-red-600">{p.title}</h4>
-            </div>
+      return (
+        <section id="work" className="py-20 px-8 bg-black cursor-default">
+          <h3 className="text-3xl text-red-600 mb-12 text-center font-extrabold">
+            My Work
+          </h3>
+      
+          {/* Category Buttons */}
+          <div className="flex flex-wrap justify-center mb-8 gap-4">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 border border-red-600 rounded transition ${
+                  selectedCategory === cat
+                    ? "bg-red-600 text-black"
+                    : "text-red-600 hover:bg-red-600 hover:text-black"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
-        ))}
-      </div>
-
-      {/* Image Modal */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-          onClick={() => setSelectedImage(null)} 
-        >
-          <img
-            src={selectedImage}
-            alt="Full Preview"
-            className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
-          />
-        </div>
-      )}
-    </section>
-  );
+      
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {filteredProjects.map((p, i) => (
+              <div
+                key={i}
+                className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:scale-105 transition cursor-pointer"
+                onClick={() => setSelectedImage(p.img)}
+              >
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  className="w-full aspect-[3/4] object-cover" 
+                  // 👆 h-80 hata diya, ab mobile pe adjust hoga
+                />
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold text-red-600">{p.title}</h4>
+                </div>
+              </div>
+            ))}
+          </div>
+      
+          {/* Image Modal */}
+          {selectedImage && (
+            <div
+              className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
+              onClick={() => setSelectedImage(null)}
+            >
+              <img
+                src={selectedImage}
+                alt="Full Preview"
+                className="w-full max-w-md sm:max-w-lg md:max-w-2xl max-h-[90vh] rounded-lg shadow-lg object-contain"
+                onClick={(e) => e.stopPropagation()} 
+              />
+            </div>
+          )}
+        </section>
+      );
+      
 }
