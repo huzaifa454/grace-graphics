@@ -67,7 +67,7 @@ const categories = ["All", "Covers", "Posters", "Albums", "Art"];
 
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null); 
 
   const filteredProjects =
     selectedCategory === "All"
@@ -81,7 +81,7 @@ export default function Work() {
       </h3>
 
       {/* Category Buttons */}
-      <div className="flex flex-wrap justify-center mb-8 gap-4">
+      <div className="flex justify-center mb-8 space-x-4">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -103,7 +103,7 @@ export default function Work() {
           <div
             key={i}
             className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:scale-105 transition cursor-pointer"
-            onClick={() => setSelectedImage(p.img)}
+            onClick={() => setSelectedImage(p.img)} 
           >
             <img
               src={p.img}
@@ -121,7 +121,7 @@ export default function Work() {
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-          onClick={() => setSelectedImage(null)}
+          onClick={() => setSelectedImage(null)} 
         >
           <img
             src={selectedImage}
