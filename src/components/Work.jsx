@@ -63,10 +63,11 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Covers", "Posters", "Albums","Art"];
+const categories = ["All", "Covers", "Posters", "Albums", "Art"];
 
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const filteredProjects =
     selectedCategory === "All"
@@ -79,7 +80,8 @@ export default function Work() {
         My Work
       </h3>
 
-      <div className="flex justify-center mb-8 space-x-4">
+      {/* Category Buttons */}
+      <div className="flex flex-wrap justify-center mb-8 gap-4">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -95,11 +97,13 @@ export default function Work() {
         ))}
       </div>
 
+      {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {filteredProjects.map((p, i) => (
           <div
             key={i}
-            className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:scale-105 transition"
+            className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:scale-105 transition cursor-pointer"
+            onClick={() => setSelectedImage(p.img)}
           >
             <img
               src={p.img}
@@ -112,6 +116,20 @@ export default function Work() {
           </div>
         ))}
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Full Preview"
+            className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+          />
+        </div>
+      )}
     </section>
   );
 }
