@@ -2,41 +2,72 @@ import { useState } from "react";
 
 const projects = [
   {
-    title: "Dark Fantasy Cover",
-    img: "https://source.unsplash.com/random/400x600/?book,cover",
+    title: "cover art",
+    img: "/src/assets/cover1.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/src/assets/cover2.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/src/assets/cover3.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/src/assets/cover4.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/src/assets/cover5.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/src/assets/cover6.jpeg",
     category: "Covers",
   },
   {
     title: "Abstract Poster",
-    img: "https://source.unsplash.com/random/400x600/?poster,art",
+    img: "/src/assets/poster1.jpeg",
+    category: "Posters",
+  },
+  {
+    title: "Abstract Poster",
+    img: "/src/assets/poster2.jpeg",
     category: "Posters",
   },
   {
     title: "Music Album Art",
-    img: "https://source.unsplash.com/random/400x600/?album,cover",
+    img: "/src/assets/music.jpeg",
     category: "Albums",
   },
   {
     title: "Creative Graphic",
-    img: "https://source.unsplash.com/random/400x600/?graphic,design",
-    category: "Posters",
+    img: "/src/assets/graphics.jpeg",
+    category: "Art",
   },
   {
-    title: "Minimal Design",
-    img: "https://source.unsplash.com/random/400x600/?minimal,art",
-    category: "Covers",
+    title: "Creative Graphic",
+    img: "/src/assets/graphics1.jpeg",
+    category: "Art",
   },
   {
-    title: "Modern Book Cover",
-    img: "https://source.unsplash.com/random/400x600/?novel,cover",
-    category: "Covers",
+    title: "Creative Graphic",
+    img: "/src/assets/graphics3.jpeg",
+    category: "Art",
   },
 ];
 
-const categories = ["All", "Covers", "Posters", "Albums"];
+const categories = ["All", "Covers", "Posters", "Albums", "Art"];
 
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedImage, setSelectedImage] = useState(null); 
 
   const filteredProjects =
     selectedCategory === "All"
@@ -45,10 +76,11 @@ export default function Work() {
 
   return (
     <section id="work" className="py-20 px-8 bg-black cursor-default">
-      <h3 className="text-3xl font-bold text-red-600 mb-12 text-center font-extrabold">
+      <h3 className="text-3xl text-red-600 mb-12 text-center font-extrabold">
         My Work
       </h3>
 
+      {/* Category Buttons */}
       <div className="flex justify-center mb-8 space-x-4">
         {categories.map((cat) => (
           <button
@@ -65,11 +97,13 @@ export default function Work() {
         ))}
       </div>
 
+      {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {filteredProjects.map((p, i) => (
           <div
             key={i}
-            className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:scale-105 transition"
+            className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:scale-105 transition cursor-pointer"
+            onClick={() => setSelectedImage(p.img)} 
           >
             <img
               src={p.img}
@@ -82,6 +116,20 @@ export default function Work() {
           </div>
         ))}
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)} 
+        >
+          <img
+            src={selectedImage}
+            alt="Full Preview"
+            className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+          />
+        </div>
+      )}
     </section>
   );
 }

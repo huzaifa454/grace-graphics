@@ -4,42 +4,47 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 px-8 bg-black text-center cursor-default"
+      className="py-20 px-8 bg-gray-900 text-center cursor-default"
     >
-      <div className="py-12 text-center border-t border-gray-800">
-      <h3 className="text-3xl font-bold text-red-600 mb-12 text-center font-extrabold">
-        About Me
-      </h3>
-      </div>
+      {/* Heading */}
+      <h3 className="text-3xl text-red-600 font-extrabold mb-4">About Me</h3>
+      <div className="w-16 h-1 bg-red-600 mx-auto mb-8 rounded-full"></div>
 
-      <p className="max-w-2xl mx-auto text-gray-400 leading-relaxed mb-16">
+      {/* Paragraph */}
+      <p className="max-w-2xl mx-auto text-gray-300 leading-relaxed mb-12">
         I create striking <span className="text-red-600">book covers</span>,
-        bold <span className="text-red-600">graphics</span>, and modern{" "}
-        <span className="text-red-600">album art</span>. My style blends
-        simplicity with strong visuals, delivering designs that leave a lasting
-        impression.
+        bold <span className="text-red-600">graphics</span>, modern{" "}
+        <span className="text-red-600">album art</span>, and clean{" "}
+        <span className="text-red-600">web development</span> projects. My style
+        blends simplicity with strong visuals, delivering designs that leave a
+        lasting impression.
       </p>
 
-      <footer className="py-6 border-t border-gray-800 text-center">
-        <p className="text-gray-500 mb-4">© 2025 Grace Portfolio</p>
-        <div className="flex justify-center space-x-6 text-red-600 text-2xl">
-          <a
-            href="https://www.instagram.com/grace_ashford_here/"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-white transition"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://discord.com/channels/@me"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-white transition"
-          >
-            <FaDiscord />
-          </a>
-        </div>
+      {/* Social Icons */}
+      <div className="flex justify-center space-x-6 mb-12">
+        <a
+          href="https://www.instagram.com/grace_ashford_here/"
+          target="_blank"
+          rel="noreferrer"
+          className="w-12 h-12 flex items-center justify-center rounded-full border border-red-600 text-red-600 text-2xl hover:bg-red-600 hover:text-black transition"
+        >
+          <FaInstagram />
+        </a>
+        <a
+          href="https://discord.com/channels/@me"
+          target="_blank"
+          rel="noreferrer"
+          className="w-12 h-12 flex items-center justify-center rounded-full border border-red-600 text-red-600 text-2xl hover:bg-red-600 hover:text-black transition"
+        >
+          <FaDiscord />
+        </a>
+      </div>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-800 pt-6">
+        <p className="text-gray-500 text-sm">
+          © 2025 Grace Portfolio. All rights reserved.
+        </p>
       </footer>
     </section>
   );

@@ -1,8 +1,9 @@
 import { Link } from "react-scroll";
+import { FaInstagram, FaDiscord } from "react-icons/fa"; // 👈 import icons
 
 export default function Hero() {
   return (
-    <section className="relative flex flex-col justify-center items-center text-center h-screen bg-black cursor-default">
+    <section className="relative flex flex-col justify-center items-center text-center h-screen bg-gray-900 cursor-default">
       {/* Spinning circular text */}
       <div className="absolute top-20 right-10">
         <svg
@@ -48,12 +49,13 @@ export default function Hero() {
           </text>
         </svg>
       </div>
+
       {/* Main heading */}
       <h2 className="text-5xl md:text-7xl font-extrabold text-red-600">
         Grace Designer
       </h2>
       <p className="mt-4 max-w-xl text-gray-400">
-        Book covers • Album art • Posters • Minimal graphic design
+        Book covers • Album art • Posters • graphic design • Web Development
       </p>
 
       {/* Smooth scroll button */}
@@ -65,6 +67,26 @@ export default function Hero() {
       >
         View My Work
       </Link>
+
+      {/* Social Icons */}
+      <div className="flex justify-center space-x-6 text-red-600 text-2xl mt-6">
+        <a
+          href="https://www.instagram.com/grace_ashford_here/"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:text-white transition"
+        >
+          <FaInstagram />
+        </a>
+        <a
+          href="https://discord.com/channels/@me"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:text-white transition"
+        >
+          <FaDiscord />
+        </a>
+      </div>
     </section>
   );
 }
