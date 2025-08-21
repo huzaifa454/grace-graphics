@@ -32,6 +32,16 @@ const projects = [
     category: "Covers",
   },
   {
+    title: "cover art",
+    img: "/asset/illustrationart1.png",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/asset/illustrationart2.png",
+    category: "Covers",
+  },
+  {
     title: "Abstract Poster",
     img: "/asset/poster1.jpeg",
     category: "Posters",
