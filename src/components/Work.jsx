@@ -3,62 +3,62 @@ import { useState } from "react";
 const projects = [
   {
     title: "cover art",
-    img: "/src/assets/cover1.jpeg",
+    img: "/asset/cover1.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/src/assets/cover2.jpeg",
+    img: "/asset/cover2.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/src/assets/cover3.jpeg",
+    img: "/asset/cover3.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/src/assets/cover4.jpeg",
+    img: "/asset/cover4.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/src/assets/cover5.jpeg",
+    img: "/asset/cover5.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/src/assets/cover6.jpeg",
+    img: "/asset/cover6.jpeg",
     category: "Covers",
   },
   {
     title: "Abstract Poster",
-    img: "/src/assets/poster1.jpeg",
+    img: "/asset/poster1.jpeg",
     category: "Posters",
   },
   {
     title: "Abstract Poster",
-    img: "/src/assets/poster2.jpeg",
+    img: "/asset/poster2.jpeg",
     category: "Posters",
   },
   {
     title: "Music Album Art",
-    img: "/src/assets/music.jpeg",
+    img: "/asset/music.jpeg",
     category: "Albums",
   },
   {
     title: "Creative Graphic",
-    img: "/src/assets/graphics.jpeg",
+    img: "/asset/graphics.jpeg",
     category: "Art",
   },
   {
     title: "Creative Graphic",
-    img: "/src/assets/graphics1.jpeg",
+    img: "/asset/graphics1.jpeg",
     category: "Art",
   },
   {
     title: "Creative Graphic",
-    img: "/src/assets/graphics3.jpeg",
+    img: "/asset/graphics3.jpeg",
     category: "Art",
   },
 ];
