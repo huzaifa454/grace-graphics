@@ -75,7 +75,7 @@ export default function Work() {
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="work" className="py-20 px-8 bg-black cursor-default">
+    <section id="work" className="py-20 px-8 bg-gradient-to-br from-gray-900 via-black to-gray-900 cursor-default">
       <h3 className="text-3xl text-red-600 mb-12 text-center font-extrabold">
         My Work
       </h3>
