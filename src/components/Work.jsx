@@ -43,6 +43,11 @@ const projects = [
   },
   {
     title: "cover art",
+    img: "/asset/illustrationart3.png",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
     img: "/asset/dark fantasy.jpeg",
     category: "Covers",
   },
