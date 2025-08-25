@@ -61,7 +61,26 @@ const projects = [
     img: "/asset/music.jpeg",
     category: "Albums",
   },
-  
+  {
+    title: "Art",
+    img: "/asset/art1.jpg",
+    category: "Art",
+  },
+  {
+    title: "Art",
+    img: "/asset/art2.jpg",
+    category: "Art",
+  },
+  {
+    title: "Art",
+    img: "/asset/art3.jpg",
+    category: "Art",
+  },
+  {
+    title: "Art",
+    img: "/asset/art4.jpg",
+    category: "Art",
+  },
 ];
 
 const categories = ["All", "Covers", "Posters", "Albums", "Art"];
