@@ -33,27 +33,37 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/illustrationart1.png",
+    img: "/asset/cover7.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/asset/illustrationart2.png",
+    img: "/asset/cover8.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/asset/illustrationart3.png",
+    img: "/asset/cover9.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/asset/art.png",
+    img: "/asset/cover10.png",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/asset/dark fantasy.jpeg",
+    img: "/asset/cover11.png",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/asset/cover12.png",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/asset/cover13.png",
     category: "Covers",
   },
   {
@@ -91,9 +101,49 @@ const projects = [
     img: "/asset/art4.jpg",
     category: "Art",
   },
+  {
+    title: "art",
+    img: "/asset/art5.jpeg",
+    category: "Art",
+  },
+  {
+    title: "art",
+    img: "/asset/art6.jpeg",
+    category: "Art",
+  },
+  {
+    title: "art",
+    img: "/asset/art7.jpeg",
+    category: "Art",
+  },
+  {
+    title: "Ebook",
+    img: "/asset/ebookcover.jpeg",
+    category: "Ebook",
+  },
+  {
+    title: "Ebook",
+    img: "/asset/ebookcover1.jpeg",
+    category: "Ebook",
+  },
+  {
+    title: "Ebook",
+    img: "/asset/ebookcover2.jpeg",
+    category: "Ebook",
+  },
+  {
+    title: "Ebook",
+    img: "/asset/ebookcover3.jpeg",
+    category: "Ebook",
+  },
+  {
+    title: "Ebook",
+    img: "/asset/ebookcover4.jpeg",
+    category: "Ebook",
+  },
 ];
 
-const categories = ["All", "Covers", "Posters", "Albums", "Art"];
+const categories = ["All", "Covers", "Posters", "Albums", "Art", "Ebook"];
 
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("All");
