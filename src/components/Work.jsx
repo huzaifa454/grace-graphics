@@ -141,9 +141,49 @@ const projects = [
     img: "/asset/ebookcover4.jpeg",
     category: "Ebook",
   },
+  {
+    title: "Ebook",
+    img: "/asset/ebookcover5.jpg",
+    category: "Ebook",
+  },
+  {
+    title: "Ebook",
+    img: "/asset/ebookcover6.jpg",
+    category: "Ebook",
+  },
+  {
+    title: "Ebook",
+    img: "/asset/ebookcover7.jpg",
+    category: "Ebook",
+  },
+  {
+    title: "Website",
+    img: "/asset/website1.jpg",
+    category: "Websites",
+  },
+  {
+    title: "Website",
+    img: "/asset/website2.jpg",
+    category: "Websites",
+  },
+  {
+    title: "Website",
+    img: "/asset/website3.jpg",
+    category: "Websites",
+  },
+  {
+    title: "Website",
+    img: "/asset/website4.jpg",
+    category: "Websites",
+  },
+  {
+    title: "Website",
+    img: "/asset/website5.jpg",
+    category: "Websites",
+  },
 ];
 
-const categories = ["All", "Covers", "Posters", "Albums", "Art", "Ebook"];
+const categories = ["All", "Covers", "Posters", "Albums", "Art", "Ebook","Websites"];
 
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("All");
