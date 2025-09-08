@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/cover4.jpeg",
+    img: "/asset/cover4.jpg",
     category: "Covers",
   },
   {
@@ -28,7 +28,7 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/cover6.jpeg",
+    img: "/asset/cover6.jpg",
     category: "Covers",
   },
   {
@@ -66,6 +66,7 @@ const projects = [
     img: "/asset/cover13.png",
     category: "Covers",
   },
+
   {
     title: "Abstract Poster",
     img: "/asset/poster1.jpeg",
