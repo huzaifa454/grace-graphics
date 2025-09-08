@@ -3,12 +3,12 @@ import { useState } from "react";
 const projects = [
   {
     title: "cover art",
-    img: "/asset/cover1.jpeg",
+    img: "/asset/cover1.png",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/asset/cover2.jpeg",
+    img: "/asset/cover2.png",
     category: "Covers",
   },
   {
@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/cover4.jpg",
+    img: "/asset/cover4.jpeg",
     category: "Covers",
   },
   {
@@ -28,12 +28,12 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/cover6.jpg",
+    img: "/asset/cover6.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/asset/cover7.jpeg",
+    img: "/asset/cover7.png",
     category: "Covers",
   },
   {
@@ -51,22 +51,6 @@ const projects = [
     img: "/asset/cover10.png",
     category: "Covers",
   },
-  {
-    title: "cover art",
-    img: "/asset/cover11.png",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover12.png",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover13.png",
-    category: "Covers",
-  },
-
   {
     title: "Abstract Poster",
     img: "/asset/poster1.jpeg",
@@ -103,17 +87,17 @@ const projects = [
     category: "Art",
   },
   {
-    title: "art",
+    title: "Art",
     img: "/asset/art5.jpeg",
     category: "Art",
   },
   {
-    title: "art",
+    title: "Art",
     img: "/asset/art6.jpeg",
     category: "Art",
   },
   {
-    title: "art",
+    title: "Art",
     img: "/asset/art7.jpeg",
     category: "Art",
   },
@@ -143,21 +127,6 @@ const projects = [
     category: "Ebook",
   },
   {
-    title: "Ebook",
-    img: "/asset/ebookcover5.jpg",
-    category: "Ebook",
-  },
-  {
-    title: "Ebook",
-    img: "/asset/ebookcover6.jpg",
-    category: "Ebook",
-  },
-  {
-    title: "Ebook",
-    img: "/asset/ebookcover7.jpg",
-    category: "Ebook",
-  },
-  {
     title: "Website",
     img: "/asset/website1.jpg",
     category: "Websites",
@@ -184,7 +153,15 @@ const projects = [
   },
 ];
 
-const categories = ["All", "Covers", "Posters", "Albums", "Art", "Ebook","Websites"];
+const categories = [
+  "All",
+  "Covers",
+  "Posters",
+  "Albums",
+  "Art",
+  "Ebook",
+  "Websites",
+];
 
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -196,7 +173,10 @@ export default function Work() {
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="work" className="py-20 px-8 bg-gradient-to-br from-gray-900 via-black to-gray-900 cursor-default">
+    <section
+      id="work"
+      className="py-20 px-8 bg-gradient-to-br from-gray-900 via-black to-gray-900 cursor-default"
+    >
       <h3 className="text-3xl text-red-600 mb-12 text-center font-extrabold">
         My Work
       </h3>
