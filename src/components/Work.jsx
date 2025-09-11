@@ -3,12 +3,12 @@ import { useState } from "react";
 const projects = [
   {
     title: "cover art",
-    img: "/asset/cover1.png",
+    img: "/asset/cover1.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/asset/cover2.png",
+    img: "/asset/cover2.jpeg",
     category: "Covers",
   },
   {
@@ -38,7 +38,7 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/cover8.jpeg",
+    img: "/asset/cover8.png",
     category: "Covers",
   },
   {
@@ -48,9 +48,40 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/cover10.png",
+    img: "/asset/cover10.jpeg",
     category: "Covers",
   },
+  {
+    title: "cover art",
+    img: "/asset/cover11.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/asset/cover12.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/asset/cover13.png",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/asset/cover14.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/asset/cover15.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/asset/cover16.png",
+    category: "Covers",
+  },
+  // psters
   {
     title: "Abstract Poster",
     img: "/asset/poster1.jpeg",
@@ -61,11 +92,13 @@ const projects = [
     img: "/asset/poster2.jpeg",
     category: "Posters",
   },
+  // Albums
   {
     title: "Music Album Art",
     img: "/asset/music.jpeg",
     category: "Albums",
   },
+  // Art
   {
     title: "Art",
     img: "/asset/art1.jpg",
@@ -101,6 +134,7 @@ const projects = [
     img: "/asset/art7.jpeg",
     category: "Art",
   },
+  // Ebook
   {
     title: "Ebook",
     img: "/asset/ebookcover.jpeg",
@@ -126,6 +160,7 @@ const projects = [
     img: "/asset/ebookcover4.jpeg",
     category: "Ebook",
   },
+  // Websites
   {
     title: "Website",
     img: "/asset/website1.jpg",
