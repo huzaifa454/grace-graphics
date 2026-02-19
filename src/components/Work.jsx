@@ -210,26 +210,31 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="py-20 px-8 bg-gradient-to-br from-gray-900 via-black to-gray-900 cursor-default"
+      className="py-20 px-8 bg-gradient-to-br from-indigo-900 via-purple-900 to-black cursor-default"
     >
-      <h3 className="text-3xl text-red-600 mb-12 text-center font-extrabold">
+      <h3 className="text-3xl mb-12 text-center font-extrabold 
+bg-gradient-to-r from-purple-400 to-pink-400 
+bg-clip-text text-transparent 
+drop-shadow-[0_0_10px_rgba(168,85,247,0.4)]">
         My Work
       </h3>
 
       {/* Category Buttons */}
       <div className="flex flex-wrap justify-center mb-8 gap-4">
         {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-4 py-2 border border-red-600 rounded transition ${
-              selectedCategory === cat
-                ? "bg-red-600 text-black"
-                : "text-red-600 hover:bg-red-600 hover:text-black"
-            }`}
-          >
-            {cat}
-          </button>
+        <button
+        key={cat}
+        onClick={() => setSelectedCategory(cat)}
+        className={`px-4 py-2 rounded-lg transition-all duration-300
+          ${
+            selectedCategory === cat
+              ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md shadow-purple-500/30"
+              : "border border-purple-500 text-purple-400 hover:bg-purple-600 hover:text-white"
+          }`}
+      >
+        {cat}
+      </button>
+      
         ))}
       </div>
 
@@ -247,7 +252,8 @@ export default function Work() {
               className="w-full h-80 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-lg font-semibold text-red-600">{p.title}</h4>
+              <h4 className="text-lg font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent
+">{p.title}</h4>
             </div>
           </div>
         ))}
