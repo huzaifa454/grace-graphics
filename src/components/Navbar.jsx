@@ -7,7 +7,7 @@ export default function Navbar() {
     fixed top-0 w-full z-50 
     border-b border-purple-900/40 cursor-default">
 
-      <h1 className="text-2xl font-bold 
+      <h1 className="text-xl font-bold 
       bg-gradient-to-r from-purple-400 to-pink-400 
       bg-clip-text text-transparent">
         Grace Designer
@@ -23,6 +23,18 @@ export default function Navbar() {
             transition-all duration-300 font-semibold"
           >
             Work
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            to="packages"
+            smooth
+            duration={500}
+            className="cursor-pointer hover:text-indigo-400 
+            transition-all duration-300 font-semibold"
+          >
+            Packages
           </Link>
         </li>
 

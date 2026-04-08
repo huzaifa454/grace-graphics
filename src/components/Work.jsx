@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { FaTimes } from "react-icons/fa";
 
 const projects = [
   {
@@ -33,12 +35,12 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/cover7.png",
+    img: "/asset/cover7.jpeg",
     category: "Covers",
   },
   {
     title: "cover art",
-    img: "/asset/cover8.png",
+    img: "/asset/cover8.jpeg",
     category: "Covers",
   },
   {
@@ -63,7 +65,7 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/cover13.png",
+    img: "/asset/cover13.jpeg",
     category: "Covers",
   },
   {
@@ -81,84 +83,20 @@ const projects = [
     img: "/asset/cover16.png",
     category: "Covers",
   },
-  // psters
   {
-    title: "Abstract Poster",
-    img: "/asset/poster1.jpeg",
-    category: "Posters",
+    title: "cover art",
+    img: "/asset/cover17.jpeg",
+    category: "Covers",
   },
   {
-    title: "Abstract Poster",
-    img: "/asset/poster2.jpeg",
-    category: "Posters",
-  },
-  // Albums
-  {
-    title: "Music Album Art",
-    img: "/asset/music.jpeg",
-    category: "Albums",
-  },
-  // Art
-  {
-    title: "Art",
-    img: "/asset/art1.jpg",
-    category: "Art",
+    title: "cover art",
+    img: "/asset/cover18.jpeg",
+    category: "Covers",
   },
   {
-    title: "Art",
-    img: "/asset/art2.jpg",
-    category: "Art",
-  },
-  {
-    title: "Art",
-    img: "/asset/art3.jpg",
-    category: "Art",
-  },
-  {
-    title: "Art",
-    img: "/asset/art4.jpg",
-    category: "Art",
-  },
-  {
-    title: "Art",
-    img: "/asset/art5.jpeg",
-    category: "Art",
-  },
-  {
-    title: "Art",
-    img: "/asset/art6.jpeg",
-    category: "Art",
-  },
-  {
-    title: "Art",
-    img: "/asset/art7.jpeg",
-    category: "Art",
-  },
-  // Ebook
-  {
-    title: "Ebook",
-    img: "/asset/ebookcover.jpeg",
-    category: "Ebook",
-  },
-  {
-    title: "Ebook",
-    img: "/asset/ebookcover1.jpeg",
-    category: "Ebook",
-  },
-  {
-    title: "Ebook",
-    img: "/asset/ebookcover2.jpeg",
-    category: "Ebook",
-  },
-  {
-    title: "Ebook",
-    img: "/asset/ebookcover3.jpeg",
-    category: "Ebook",
-  },
-  {
-    title: "Ebook",
-    img: "/asset/ebookcover4.jpeg",
-    category: "Ebook",
+    title: "cover art",
+    img: "/asset/cover19.jpeg",
+    category: "Covers",
   },
   // Websites
   {
@@ -191,10 +129,6 @@ const projects = [
 const categories = [
   "All",
   "Covers",
-  "Posters",
-  "Albums",
-  "Art",
-  "Ebook",
   "Websites",
 ];
 
@@ -212,12 +146,21 @@ export default function Work() {
       id="work"
       className="py-20 px-8 bg-gradient-to-br from-indigo-900 via-purple-900 to-black cursor-default"
     >
-      <h3 className="text-3xl mb-12 text-center font-extrabold 
-bg-gradient-to-r from-purple-400 to-pink-400 
-bg-clip-text text-transparent 
-drop-shadow-[0_0_10px_rgba(168,85,247,0.4)]">
+      <motion.h3
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-3xl md:text-4xl text-purple-300 font-extrabold mb-4 text-center"
+      >
         My Work
-      </h3>
+      </motion.h3>
+
+      <motion.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        transition={{ duration: 0.6 }}
+        className="w-32 h-1 mx-auto mb-8 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full"
+      ></motion.div>
 
       {/* Category Buttons */}
       <div className="flex flex-wrap justify-center mb-8 gap-4">
@@ -265,6 +208,15 @@ drop-shadow-[0_0_10px_rgba(168,85,247,0.4)]">
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
           onClick={() => setSelectedImage(null)}
         >
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(null);
+            }}
+            className="absolute top-4 right-4 text-white text-2xl hover:text-purple-400 transition-colors duration-300 z-60"
+          >
+            <FaTimes />
+          </button>
           <img
             src={selectedImage}
             alt="Full Preview"
