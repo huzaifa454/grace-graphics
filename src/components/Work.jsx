@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaTimes } from "react-icons/fa";
 
-const projects = [
+const rawProjects = [
   {
     title: "cover art",
     img: "/asset/cover1.jpeg",
@@ -20,7 +20,7 @@ const projects = [
   },
   {
     title: "cover art",
-    img: "/asset/cover4.jpeg",
+    img: "/asset/cover4.png",
     category: "Covers",
   },
   {
@@ -98,6 +98,16 @@ const projects = [
     img: "/asset/cover19.jpeg",
     category: "Covers",
   },
+  {
+    title: "cover art",
+    img: "/asset/cover20.jpeg",
+    category: "Covers",
+  },
+  {
+    title: "cover art",
+    img: "/asset/cover21.jpeg",
+    category: "Covers",
+  },
   // Websites
   {
     title: "Website",
@@ -121,10 +131,17 @@ const projects = [
   },
   {
     title: "Website",
-    img: "/asset/website5.jpg",
+    img: "/asset/website4.jpg",
     category: "Websites",
   },
 ];
+
+let coverCount = 0;
+const projects = rawProjects.map((p) =>
+  p.category === "Covers"
+    ? { ...p, tag: ++coverCount <= 6 ? "Sold" : "Buy" }
+    : p
+);
 
 const categories = [
   "All",
@@ -189,11 +206,22 @@ export default function Work() {
             className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:scale-105 transition cursor-pointer"
             onClick={() => setSelectedImage(p.img)}
           >
-            <img
-              src={p.img}
-              alt={p.title}
-              className="w-full h-80 object-cover"
-            />
+            <div className="relative">
+              <img
+                src={p.img}
+                alt={p.title}
+                className="w-full h-80 object-cover"
+              />
+              {p.tag && (
+                <span className={`absolute top-3 right-3 px-2 py-1 text-[10px] font-semibold rounded-full ${
+                  p.tag === "Sold"
+                    ? "bg-emerald-500 text-white"
+                    : "bg-red-500 text-white"
+                }`}>
+                  {p.tag}
+                </span>
+              )}
+            </div>
             <div className="p-4">
               <h4 className="text-lg font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent
 ">{p.title}</h4>
