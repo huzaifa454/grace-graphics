@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useAdminStatus } from "../hooks/useAdminStatus";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isAdmin = useAdminStatus();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -38,7 +41,7 @@ export default function Navbar() {
       <ul className="hidden md:flex space-x-8 text-gray-300">
         {navItems.map((item) => (
           <li key={item.to}>
-            <Link
+            <ScrollLink
               to={item.to}
               smooth
               duration={500}
@@ -46,9 +49,19 @@ export default function Navbar() {
               transition-all duration-300 font-semibold`}
             >
               {item.label}
-            </Link>
+            </ScrollLink>
           </li>
         ))}
+        {isAdmin && (
+          <li>
+            <RouterLink
+              to="/admin/dashboard"
+              className="cursor-pointer text-purple-300 hover:text-pink-400 transition-all duration-300 font-semibold"
+            >
+              Admin
+            </RouterLink>
+          </li>
+        )}
       </ul>
 
       {/* Hamburger Menu Button - Mobile */}
@@ -77,7 +90,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.3 }}
               >
-                <Link
+                <ScrollLink
                   to={item.to}
                   smooth
                   duration={500}
@@ -86,9 +99,24 @@ export default function Navbar() {
                   transition-all duration-300 font-semibold text-lg`}
                 >
                   {item.label}
-                </Link>
+                </ScrollLink>
               </motion.li>
             ))}
+            {isAdmin && (
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
+              >
+                <RouterLink
+                  to="/admin/dashboard"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="cursor-pointer block text-purple-300 hover:text-pink-400 transition-all duration-300 font-semibold text-lg"
+                >
+                  Admin
+                </RouterLink>
+              </motion.li>
+            )}
           </ul>
         </motion.div>
       )}

@@ -5,6 +5,7 @@ import Work from "./components/Work";
 import Packages from "./components/packages";
 import Testimonials from "./components/Testimonials";
 import About from "./components/About";
+import AdminLayout from "./pages/AdminLayout";
 
 function Home() {
   return (
@@ -24,6 +25,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/admin/login" element={<AdminLayout />} />
+        <Route path="/admin/dashboard" element={<AdminLayout />} />
       </Routes>
     </Router>
   );

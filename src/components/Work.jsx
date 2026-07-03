@@ -1,147 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaTimes } from "react-icons/fa";
-
-const rawProjects = [
-  {
-    title: "cover art",
-    img: "/asset/cover1.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover2.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover3.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover4.png",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover5.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover6.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover7.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover8.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover9.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover10.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover11.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover12.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover13.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover14.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover15.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover16.png",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover17.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover18.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover19.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover20.jpeg",
-    category: "Covers",
-  },
-  {
-    title: "cover art",
-    img: "/asset/cover21.jpeg",
-    category: "Covers",
-  },
-  // Websites
-  {
-    title: "Website",
-    img: "/asset/website1.jpg",
-    category: "Websites",
-  },
-  {
-    title: "Website",
-    img: "/asset/website2.jpg",
-    category: "Websites",
-  },
-  {
-    title: "Website",
-    img: "/asset/website3.jpg",
-    category: "Websites",
-  },
-  {
-    title: "Website",
-    img: "/asset/website4.jpg",
-    category: "Websites",
-  },
-  {
-    title: "Website",
-    img: "/asset/website4.jpg",
-    category: "Websites",
-  },
-];
-
-let coverCount = 0;
-const projects = rawProjects.map((p) =>
-  p.category === "Covers"
-    ? { ...p, tag: ++coverCount <= 6 ? "Sold" : "Buy" }
-    : p
-);
+import { usePortfolioImages } from "../hooks/usePortfolioImages";
 
 const categories = [
   "All",
@@ -150,13 +10,35 @@ const categories = [
 ];
 
 export default function Work() {
+  const { images, loading } = usePortfolioImages();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState(null);
+
+  // Add "Sold" or "Buy" tags for covers (logic from original)
+  let coverCount = 0;
+  const projects = images.map((p) =>
+    p.category === "Covers"
+      ? { ...p, tag: ++coverCount <= 6 ? "Sold" : "Buy" }
+      : p
+  );
 
   const filteredProjects =
     selectedCategory === "All"
       ? projects
       : projects.filter((p) => p.category === selectedCategory);
+
+  if (loading) {
+    return (
+      <section
+        id="work"
+        className="py-20 px-8 bg-gradient-to-br from-indigo-900 via-purple-900 to-black cursor-default"
+      >
+        <h3 className="text-3xl md:text-4xl text-purple-300 font-extrabold text-center">
+          Loading...
+        </h3>
+      </section>
+    );
+  }
 
   return (
     <section
