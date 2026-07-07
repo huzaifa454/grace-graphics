@@ -6,6 +6,7 @@ import { usePortfolioImages } from "../hooks/usePortfolioImages";
 const categories = [
   "All",
   "Covers",
+  "Premade",
   "Websites",
 ];
 
@@ -14,17 +15,20 @@ export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Add "Sold" or "Buy" tags for covers (logic from original)
-  let coverCount = 0;
+  // Add "Sold" or "Buy" tags for covers based on the project title
   const projects = images.map((p) =>
     p.category === "Covers"
-      ? { ...p, tag: ++coverCount <= 6 ? "Sold" : "Buy" }
+      ? { ...p, tag: /premade/i.test(p.title) ? "Buy" : "Sold" }
       : p
   );
 
   const filteredProjects =
     selectedCategory === "All"
       ? projects
+      : selectedCategory === "Premade"
+      ? projects.filter(
+          (p) => p.category === "Covers" && /premade/i.test(p.title)
+        )
       : projects.filter((p) => p.category === selectedCategory);
 
   if (loading) {
