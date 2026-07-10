@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const testimonials = [
@@ -17,9 +18,25 @@ const testimonials = [
     img: "/asset/testimonials4.jpeg",
     id: 4,
   },
+  {
+    img: "/asset/Testimonials5.jpeg",
+    id: 5,
+  },
+  {
+    img: "/asset/Testimonials6.jpeg",
+    id: 6,
+  },
+  {
+    img: "/asset/Testimonials7.jpeg",
+    id: 7,
+  },
 ];
 
 export default function Testimonials() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const closeModal = () => setActiveIndex(null);
+
   return (
     <section
       id="testimonials"
@@ -41,66 +58,55 @@ export default function Testimonials() {
         className="w-32 h-1 mx-auto mb-12 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full"
       ></motion.div>
 
-      {/* Staggered Grid Layout */}
-      <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-max">
-          {/* 1st - Top Left, Full Height */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0 }}
-            className="md:col-span-2 md:row-span-2"
-          >
-            <img
-              src={testimonials[0].img}
-              alt="testimonial"
-              className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg hover:scale-105 transition"
-            />
-          </motion.div>
-
-          {/* 2nd - Top Right Small */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="md:col-span-1"
-          >
-            <img
-              src={testimonials[1].img}
-              alt="testimonial"
-              className="w-full h-40 object-cover rounded-lg shadow-lg hover:scale-105 transition"
-            />
-          </motion.div>
-
-          {/* 3rd - Top Right Small */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:col-span-1"
-          >
-            <img
-              src={testimonials[2].img}
-              alt="testimonial"
-              className="w-full h-40 object-cover rounded-lg shadow-lg hover:scale-105 transition"
-            />
-          </motion.div>
-
-          {/* 4th - Bottom Right Large */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="md:col-span-2"
-          >
-            <img
-              src={testimonials[3].img}
-              alt="testimonial"
-              className="w-full h-40 md:h-48 object-cover rounded-lg shadow-lg hover:scale-105 transition"
-            />
-          </motion.div>
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="overflow-hidden rounded-3xl bg-slate-950/20 shadow-2xl shadow-black/20 cursor-pointer"
+              onClick={() => setActiveIndex(index)}
+            >
+              <img
+                src={testimonial.img}
+                alt={`testimonial ${testimonial.id}`}
+                className="w-full h-72 sm:h-80 md:h-64 xl:h-72 object-cover transition duration-500 hover:scale-105"
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
+
+      {activeIndex !== null && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={closeModal}
+        >
+          <div
+            className="relative w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl shadow-black/50"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={closeModal}
+              className="absolute right-4 top-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/90 text-white transition hover:bg-slate-700"
+              aria-label="Close testimonial preview"
+            >
+              <span className="text-2xl leading-none">×</span>
+            </button>
+            <img
+              src={testimonials[activeIndex].img}
+              alt={`testimonial ${testimonials[activeIndex].id}`}
+              className="h-[75vh] w-full object-contain bg-black"
+            />
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }
