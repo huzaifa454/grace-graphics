@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaInstagram, FaDiscord } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 export default function About() {
   return (
@@ -32,12 +32,7 @@ export default function About() {
         transition={{ duration: 0.8 }}
         className="max-w-2xl mx-auto text-white leading-relaxed mb-12 text-lg"
       >
-        I create striking <span className="text-purple-400">book covers</span>,
-        bold <span className="text-purple-400">graphics</span>, modern{" "}
-        <span className="text-purple-400">album art</span>, and clean{" "}
-        <span className="text-purple-400">web development</span> projects. <br />
-        My style blends simplicity with strong visuals, delivering designs that
-        leave a lasting impression.
+        <span className="text-purple-400">Dark fantasy enthusiast. Atmospheric artist. All round creative.</span> Grace is an Australian based freelance cover designer who has worked with <span className="text-purple-400">USA bestselling authors</span>. She specialises in striking book covers, photo manipulation, and custom visual branding, creating immersive designs that tell a story at a glance. Her work blends mood, elegance, and bold creativity, with a passion for honest, boundary pushing ideas. From <span className="text-purple-400">book covers</span> and <span className="text-purple-400">branding</span> to <span className="text-purple-400">social media graphics</span> and <span className="text-purple-400">web design</span>, Grace creates visuals that leave a lasting impression.
       </motion.p>
 
       {/* Optional profile image */}
@@ -48,13 +43,12 @@ export default function About() {
         className="mb-12"
       >
         <img
-  src="/asset/illustration.png"
-  alt="Grace Designer"
-  className="mx-auto w-60 h-60 object-cover rounded-full 
+          src="/asset/logo.jpeg"
+          alt="Grace Designer"
+          className="mx-auto w-60 h-60 object-cover rounded-full 
              border-4 border-purple-500 shadow-lg 
              transition-transform duration-300 hover:scale-105"
-/>
-
+        />
       </motion.div>
 
       {/* Social Icons */}
@@ -70,13 +64,6 @@ export default function About() {
           rel="noreferrer"
           className="w-12 h-12 flex items-center justify-center rounded-full border border-purple-500 text-purple-400 text-2xl hover:scale-110 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300  hover:shadow-lg hover:shadow-purple-500/30">
           <FaInstagram />
-        </a>
-        <a
-          href="https://discord.com/channels/@me"
-          target="_blank"
-          rel="noreferrer"
-          className="w-12 h-12 flex items-center justify-center rounded-full border border-purple-500 text-purple-400 text-2xl hover:scale-110 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
-          <FaDiscord />
         </a>
       </motion.div>
 

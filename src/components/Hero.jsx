@@ -1,5 +1,5 @@
 import { Link } from "react-scroll";
-import { FaInstagram, FaDiscord } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -75,7 +75,7 @@ export default function Hero() {
         transition={{ duration: 1, delay: 0.3 }}
         className="mt-4 max-w-xl text-gray-300"
       >
-        Book covers • Album art • Posters • Graphic Design • Web Development
+        Book covers • Websites • Social media graphics • Branding
       </motion.p>
 
       {/* Animated button */}
@@ -114,18 +114,6 @@ export default function Hero() {
           <FaInstagram />
         </a>
 
-        <a
-          href="https://discord.com/channels/@me"
-          target="_blank"
-          rel="noreferrer"
-          className="w-12 h-12 flex items-center justify-center rounded-full 
-               border border-purple-500 text-purple-400 text-2xl 
-               hover:scale-110 hover:bg-gradient-to-r hover:from-purple-500 
-               hover:to-pink-500 hover:text-white 
-               transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30"
-        >
-          <FaDiscord />
-        </a>
       </motion.div>
 
     </section>
