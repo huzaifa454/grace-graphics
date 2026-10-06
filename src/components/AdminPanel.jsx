@@ -5,7 +5,7 @@ import { collection, addDoc, getDocs, deleteDoc, doc, query, orderBy } from "fir
 export default function AdminPanel() {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("Covers");
+  const [category, setCategory] = useState("Sold Covers");
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -108,7 +108,8 @@ export default function AdminPanel() {
             onChange={(e) => setCategory(e.target.value)}
             className="border p-2 w-full"
           >
-            <option>Covers</option>
+            <option>Sold Covers</option>
+            <option>Premade Covers</option>
             <option>Websites</option>
           </select>
         </div>

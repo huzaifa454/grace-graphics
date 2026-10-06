@@ -5,8 +5,8 @@ import { usePortfolioImages } from "../hooks/usePortfolioImages";
 
 const categories = [
   "All",
-  "Covers",
-  "Premade",
+  "Sold Covers",
+  "Premade Covers",
   "Websites",
 ];
 
@@ -15,21 +15,10 @@ export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Add "Sold" or "Buy" tags for covers based on the project title
-  const projects = images.map((p) =>
-    p.category === "Covers"
-      ? { ...p, tag: /premade/i.test(p.title) ? "Buy" : "Sold" }
-      : p
-  );
-
   const filteredProjects =
     selectedCategory === "All"
-      ? projects
-      : selectedCategory === "Premade"
-      ? projects.filter(
-          (p) => p.category === "Covers" && /premade/i.test(p.title)
-        )
-      : projects.filter((p) => p.category === selectedCategory);
+      ? images
+      : images.filter((p) => p.category === selectedCategory);
 
   if (loading) {
     return (
@@ -98,15 +87,6 @@ export default function Work() {
                 alt={p.title}
                 className="w-full h-80 object-cover"
               />
-              {p.tag && (
-                <span className={`absolute top-3 right-3 px-2 py-1 text-[10px] font-semibold rounded-full ${
-                  p.tag === "Sold"
-                    ? "bg-emerald-500 text-white"
-                    : "bg-red-500 text-white"
-                }`}>
-                  {p.tag}
-                </span>
-              )}
             </div>
             <div className="p-4">
               <h4 className="text-lg font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent
